@@ -39,11 +39,11 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- PostgreSQL Driver -->
+        <!-- PostgreSQL Driver - Updated to 42.7.4 to fix SQL injection vulnerabilities -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.7.1</version>
+            <version>42.7.4</version>
         </dependency>
 
         <!-- Bean Validation -->
