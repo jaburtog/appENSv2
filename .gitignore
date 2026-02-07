@@ -1,0 +1,37 @@
+# Backend - Java/Maven
+backend/target/
+backend/.settings/
+backend/.classpath
+backend/.project
+backend/.factorypath
+backend/*.iml
+backend/.idea/
+
+# Frontend - Angular/Node
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Build artifacts
+*.war
+*.jar
+*.ear
+
+# Database
+*.db
+*.sqlite
