@@ -39,11 +39,12 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- PostgreSQL Driver - Updated to 42.7.4 to fix SQL injection vulnerabilities -->
+        <!-- PostgreSQL Driver - Updated to 42.7.7 to fix authentication fallback vulnerability -->
+        <!-- Patches: SQL injection (< 42.7.2) AND insecure auth fallback (< 42.7.7) -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
-            <version>42.7.4</version>
+            <version>42.7.7</version>
         </dependency>
 
         <!-- Bean Validation -->
