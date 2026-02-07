@@ -8,7 +8,9 @@
     <persistence-unit name="ens-pu" transaction-type="JTA">
         <jta-data-source>jdbc/ensDB</jta-data-source>
         <properties>
-            <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
+            <!-- For development: use 'update' to keep data, 'create' to recreate schema -->
+            <!-- For production: use 'none' and manage schema with migration tools -->
+            <property name="jakarta.persistence.schema-generation.database.action" value="update"/>
             <property name="jakarta.persistence.schema-generation.create-source" value="metadata"/>
             <property name="jakarta.persistence.schema-generation.drop-source" value="metadata"/>
             <property name="eclipselink.logging.level" value="FINE"/>

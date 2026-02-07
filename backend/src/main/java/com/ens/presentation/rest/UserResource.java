@@ -123,7 +123,9 @@ public class UserResource {
         User user = new User();
         user.setUsername(dto.getUsername());
         user.setEmail(dto.getEmail());
-        user.setPassword("defaultPassword"); // In real app, this should be hashed
+        user.setPassword("CHANGEME"); // TODO: Implement proper password hashing with BCrypt or similar
+        // For production: Add password field to UserDTO and hash it before storing
+        // Example: user.setPassword(BCrypt.hashpw(dto.getPassword(), BCrypt.gensalt()));
         user.setFirstName(dto.getFirstName());
         user.setLastName(dto.getLastName());
         user.setPhoneNumber(dto.getPhoneNumber());
