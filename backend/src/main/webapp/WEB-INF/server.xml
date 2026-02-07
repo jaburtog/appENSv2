@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server description="ENS Application Server">
+    
+    <featureManager>
+        <feature>jakartaee-10.0</feature>
+        <feature>microProfile-6.0</feature>
+    </featureManager>
+    
+    <httpEndpoint id="defaultHttpEndpoint"
+                  httpPort="9080"
+                  httpsPort="9443"
+                  host="*"/>
+    
+    <!-- PostgreSQL Library -->
+    <library id="postgresql-lib">
+        <fileset dir="${server.config.dir}/lib" includes="postgresql*.jar"/>
+    </library>
+    
+    <!-- DataSource Configuration -->
+    <dataSource id="ensDB" jndiName="jdbc/ensDB">
+        <jdbcDriver libraryRef="postgresql-lib"/>
+        <properties.postgresql
+            serverName="localhost"
+            portNumber="5432"
+            databaseName="ensdb"
+            user="postgres"
+            password="postgres"/>
+        <connectionManager maxPoolSize="50" minPoolSize="5"/>
+    </dataSource>
+    
+    <!-- Application Configuration -->
+    <webApplication id="ens-backend" 
+                    location="ens-backend.war" 
+                    contextRoot="/api">
+        <classloader apiTypeVisibility="spec, ibm-api, third-party"/>
+    </webApplication>
+    
+    <!-- CORS Configuration -->
+    <cors domain="/"
+          allowedOrigins="http://localhost:4200, http://localhost:9080"
+          allowedMethods="GET, POST, PUT, DELETE, OPTIONS"
+          allowedHeaders="*"
+          allowCredentials="true"
+          maxAge="3600"/>
+    
+</server>
